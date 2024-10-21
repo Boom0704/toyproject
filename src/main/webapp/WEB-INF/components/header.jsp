@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<link rel="stylesheet" type="text/css" href="./css/header.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <nav class="navbar navbar-expand-lg" style="background-color: #fec397;" id="mainNav">
@@ -16,14 +15,14 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/" style="color: #6f5f5e; font-weight: bold;">홈</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/cat-map" style="color: #6f5f5e; font-weight: bold;">고양이맵</a></li>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/board" style="color: #6f5f5e; font-weight: bold;">게시판</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/catmapView" style="color: #6f5f5e; font-weight: bold;">고양이맵</a></li>
+        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/boardView" style="color: #6f5f5e; font-weight: bold;">게시판</a></li>
         <c:if test="${sessionScope.login == null}">
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="<c:url value='loginView' />" style="color: #6f5f5e; font-weight: bold;">로그인</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/registView" style="color: #6f5f5e; font-weight: bold;">회원가입</a></li>
         </c:if>
         <c:if test="${sessionScope.login != null}">
-          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="#" style="color: #6f5f5e; font-weight: bold;">${sessionScope.login.memId} 님</a></li>
+          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/profileView" style="color: #6f5f5e; font-weight: bold;">${sessionScope.login.memId} 님</a></li>
           <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-2 px-0 px-lg-2 rounded" href="/logoutDo" style="color: #6f5f5e; font-weight: bold;">로그아웃</a></li>
         </c:if>
       </ul>

@@ -23,6 +23,14 @@
             <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <multipart-config>
+            <!-- 설정된 업로드 파일의 최대 크기 -->
+            <max-file-size>20971520</max-file-size> <!-- 20MB -->
+            <!-- 설정된 요청의 최대 크기 -->
+            <max-request-size>20971520</max-request-size> <!-- 20MB -->
+            <!-- 임시 파일을 저장할 위치를 설정 -->
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
     </servlet>
     
     <servlet-mapping>
