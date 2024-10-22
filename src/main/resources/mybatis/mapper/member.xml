@@ -3,17 +3,18 @@
 <mapper namespace="com.pro.my.member.dao.IMemberDAO">
 
     <!-- 회원 등록 (회원가입) -->
-    <insert id="registMember" parameterType="com.pro.my.member.vo.MemberVO">
-        INSERT INTO members (
-            mem_id, mem_pw, email, profile_img, use_yn, update_dt, create_dt
-        ) VALUES (
-            #{memId}, #{memPw}, #{email}, #{profileImg}, #{useYn}, SYSDATE, SYSDATE
-        )
-    </insert>
-    
+<insert id="registMember" parameterType="com.pro.my.member.vo.MemberVO">
+    INSERT INTO members (
+        id, mem_id, mem_pw, email, profile_img, use_yn, update_dt, create_dt
+    ) VALUES (
+        seq_member_id.NEXTVAL, #{memId}, #{memPw}, #{email}, #{profileImg}, #{useYn}, SYSDATE, SYSDATE
+    )
+</insert>
+
     <!-- 회원 로그인 -->
     <select id="loginMember" parameterType="com.pro.my.member.vo.MemberVO" resultType="com.pro.my.member.vo.MemberVO">
-        SELECT mem_id AS memId,
+        SELECT id AS id,
+               mem_id AS memId,
                mem_pw AS memPw,
                email,
                profile_img AS profileImg,
@@ -25,8 +26,8 @@
         AND mem_id = #{memId}
         AND mem_pw = #{memPw}
     </select>
-    
-        <!-- 프로필 이미지 업데이트 -->
+
+    <!-- 프로필 이미지 업데이트 -->
     <update id="updateProfileImage">
         UPDATE members
         SET profile_img = #{profileImg},

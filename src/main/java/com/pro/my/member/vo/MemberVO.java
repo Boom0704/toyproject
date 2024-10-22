@@ -3,6 +3,7 @@ package com.pro.my.member.vo;
 import java.util.Date;
 
 public class MemberVO {
+    private int id;    
     private String memId;        // 회원 ID
     private String memPw;        // 회원 비밀번호
     private String email;        // 이메일
@@ -15,7 +16,8 @@ public class MemberVO {
     public MemberVO() {}
 
     // 매개변수가 있는 생성자
-    public MemberVO(String memId, String memPw, String email, String profileImg, String useYn, Date updateDt, Date createDt) {
+    public MemberVO(int id,String memId, String memPw, String email, String profileImg, String useYn, Date updateDt, Date createDt) {
+        this.id = id;
         this.memId = memId;
         this.memPw = memPw;
         this.email = email;
@@ -26,6 +28,13 @@ public class MemberVO {
     }
 
     // Getter와 Setter 메서드
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getMemId() {
         return memId;
     }
@@ -86,7 +95,8 @@ public class MemberVO {
     @Override
     public String toString() {
         return "MemberVO{" +
-                "memId='" + memId + '\'' +
+                "id=" + id +
+                ", memId='" + memId + '\'' +
                 ", memPw='" + memPw + '\'' +
                 ", email='" + email + '\'' +
                 ", profileImg='" + profileImg + '\'' +
