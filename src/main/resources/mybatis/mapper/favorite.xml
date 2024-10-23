@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pro.my.board.dao.IFavoriteDAO">
+
+    <!-- 게시글에 즐겨찾기 추가 -->
+    <insert id="insertFavorite">
+        INSERT INTO FAVORITES (POST_ID, MEM_ID, FAVORITE_DT)
+        VALUES (#{postId}, #{memId}, SYSDATE)
+    </insert>
+
+    <!-- 게시글에서 즐겨찾기 삭제 -->
+    <delete id="deleteFavorite">
+        DELETE FROM FAVORITES
+        WHERE POST_ID = #{postId} AND MEM_ID = #{memId}
+    </delete>
+
+    <!-- 특정 사용자의 즐겨찾기 여부 확인 -->
+    <select id="checkFavorite" resultType="com.pro.my.board.vo.FavoriteVO">
+        SELECT POST_ID, MEM_ID, FAVORITE_DT
+        FROM FAVORITES
+        WHERE POST_ID = #{postId} AND MEM_ID = #{memId}
+    </select>
+
+    <!-- 특정 게시물의 즐겨찾기 수 가져오기 -->
+    <select id="countFavoritesByPostId" resultType="int">
+        SELECT COUNT(*) FROM FAVORITES
+        WHERE POST_ID = #{postId}
+    </select>
+    
+    <!-- 게시물의 즐겨찾기를 누른 memId 목록 조회 -->
+    <select id="selectMemIdsByPostId" resultType="String">
+        SELECT MEM_ID
+        FROM FAVORITES
+        WHERE POST_ID = #{postId}
+    </select>
+</mapper>

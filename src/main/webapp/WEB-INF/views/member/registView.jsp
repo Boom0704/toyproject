@@ -104,7 +104,6 @@
                     <input type="password" class="form-control" name="memPw" placeholder="비밀번호" required>
                     <input type="password" class="form-control" name="confirm_password" placeholder="비밀번호 확인" required>
                     <input type="email" class="form-control" name="email" placeholder="이메일" required>
-                    <input type="text" class="form-control" name="nickname" placeholder="닉네임" required>
                     <!-- 회원가입 버튼 (폼 제출) -->
                     <button type="submit" class="btn btn-primary btn-register">회원가입</button>
                 </form>
