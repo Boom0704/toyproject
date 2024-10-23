@@ -1,12 +1,15 @@
+/* 기본 레이아웃 설정 */
 #board {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    min-height: 100vh;
 }
 
+/* 헤더 부분 설정 */
 .header {
     width: 100%;
     max-width: 1080px;
@@ -15,18 +18,23 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: #f9f9f9;
-    gap: 5px;
+    background-color: #fff;
+    gap: 10px;
 }
 
 .header input[type="text"] {
-    width: 20%;
+    flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.header input[type="text"]:focus {
+    box-shadow: 0 0 8px rgba(0, 150, 136, 0.2);
 }
 
 .header select {
@@ -34,64 +42,70 @@
     border: 1px solid #ddd;
     border-radius: 20px;
     outline: none;
-}
-
-.sort-options {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    transition: box-shadow 0.3s ease;
 }
 
 .header button {
     padding: 10px 20px;
-    background-color: #6d8c8e;
+    background-color: #00796b;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     outline: none;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
+.header button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+/* 프로필 카드 그리드 */
 .profile-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
     width: 100%;
     max-width: 1080px;
 }
 
+/* 프로필 카드 */
 .profile-card {
     border: 1px solid #ddd;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: white;
     position: relative;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-card:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* "NEW" 배지 */
 .new-badge {
     position: absolute;
     top: 10px;
     left: 10px;
-    background-color: rgba(255, 0, 0, 0.7);
+    background-color: rgba(255, 0, 0, 0.8);
     color: white;
-    padding: 3px 8px;
+    padding: 5px 10px;
     border-radius: 15px;
-    font-size: 0.7em;
+    font-size: 0.75em;
 }
 
+/* 즐겨찾기 아이콘 (별 모양) */
 .favorite-star {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 1.95em;
-    color: rgba(0, 0, 0, 0.1);
+    font-size: 2em;
+    color: rgba(0, 0, 0, 0.2);
     transition: color 0.3s;
 }
 
@@ -99,23 +113,38 @@
     color: #ffd700;
 }
 
-.profile-photo {
+/* 프로필 사진 */
+.profile-photo-container {
     width: 100%;
-    height: auto;
+    height: 0;
+    padding-bottom: 66.66%; /* 3:2 비율 */
+    position: relative;
+    background-color: black; /* 남는 부분을 검정색으로 처리 */
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    overflow: hidden;
 }
 
+.profile-photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 사진을 비율에 맞게 자르기 */
+}
+
+/* 프로필 정보 */
 .profile-info {
     padding: 16px;
     text-align: center;
-    position: relative;
 }
 
 .profile-info h2 {
     margin: 0;
     font-size: 1.2em;
-    color: #6f5f5e;
+    color: #333;
 }
 
 .profile-info p {
@@ -123,6 +152,7 @@
     color: #666;
 }
 
+/* 추가 프로필 버튼 */
 .add-profile {
     width: 100%;
     max-width: 1080px;
@@ -144,16 +174,27 @@
     background-color: #45a049;
 }
 
+/* 좋아요 하트 */
 .favorite-heart {
     position: absolute;
     bottom: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 3em;
+    font-size: 2.5em;
     color: rgba(0, 0, 0, 0.1);
     transition: color 0.3s;
 }
 
 .favorite-heart.selected {
     color: #ff69b4;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .header input[type="text"] {
+        width: 100%;
+    }
 }

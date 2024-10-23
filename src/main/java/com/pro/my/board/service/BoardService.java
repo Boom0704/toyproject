@@ -37,4 +37,8 @@ public class BoardService {
     public List<BoardVO> selectAllBoardsAdmin() {
         return boardDAO.selectAllBoardsAdmin();
     }
+    
+    public void incrementViews(int postId) {
+        boardDAO.incrementViews(postId);
+    }
 }

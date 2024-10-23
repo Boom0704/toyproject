@@ -24,4 +24,6 @@ public interface IBoardDAO {
 
     // 게시물 전체 조회 (관리자용 등)
     public List<BoardVO> selectAllBoardsAdmin();
+    
+    public void incrementViews(int postId);
 }

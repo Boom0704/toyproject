@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pro.my.board.service.BoardService;
 import com.pro.my.board.service.CommentService;
+import com.pro.my.board.service.FavoriteService;
+import com.pro.my.board.service.LikesService;
 import com.pro.my.board.vo.BoardVO;
 import com.pro.my.board.vo.CommentVO;
 
@@ -31,6 +33,10 @@ public class BoardController {
     private BoardService boardService;
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private LikesService likesService;
+    @Autowired
+    private FavoriteService favoriteService;
     
 	@RequestMapping("/boardView")
 	public String boardView(Model model) {
@@ -44,18 +50,28 @@ public class BoardController {
 		return "board/boardWriteView";
 	}
 	
-	 @RequestMapping("/boardDetailView/{id}")
-	    public String boardDetailView(@PathVariable("id") int id, Model model) {
-	        BoardVO board = boardService.selectBoardById(id);
-	        List<CommentVO> comments = commentService.selectCommentsByPostId(id);
-	        for(CommentVO c:comments) {
-	        	System.out.println(c);
-	        }
-	        model.addAttribute("board", board);
-	        model.addAttribute("comments", comments);
-
-	        return "board/boardDetailView";
-	    }
+	@RequestMapping("/boardDetailView/{id}")
+	public String boardDetailView(@PathVariable("id") int id, Model model) {
+	    BoardVO board = boardService.selectBoardById(id);
+	    
+	    List<CommentVO> comments = commentService.selectCommentsByPostId(id);
+	    
+	    int likesCount = likesService.countLikes(id);
+	    List<String> likeList = likesService.getLikeMemIdsByPostId(id);
+	    
+	    int favoritesCount = favoriteService.countFavorites(id);
+	    List<String> favoriteList = favoriteService.getFavoriteMemIdsByPostId(id);
+	    
+	    model.addAttribute("board", board);
+	    model.addAttribute("comments", comments);
+	    model.addAttribute("likesCount", likesCount);
+	    model.addAttribute("likeList", likeList);
+	    model.addAttribute("favoritesCount", favoritesCount);
+	    model.addAttribute("favoriteList", favoriteList);
+	    
+	    boardService.incrementViews(id);
+	    return "board/boardDetailView";
+	}
 	
 	
     // 게시물 작성 처리

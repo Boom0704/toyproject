@@ -39,26 +39,24 @@
         <!-- 게시물 목록 -->
 		<div class="profile-grid">
 		    <c:forEach var="board" items="${boards}">
-		        <div class="profile-card" onclick="location.href='<%=request.getContextPath()%>/boardDetailView/${board.postId}'">
-		            <div class="new-badge">NEW</div>
-		            <span class="favorite-star">★</span>
-					<c:choose>
-					    <c:when test="${fn:contains(board.photoUrls, ',')}">
-					        <img class="profile-photo" src="${fn:substringBefore(board.photoUrls, ',')}" alt="고양이 사진">
-					    </c:when>
-					    <c:otherwise>
-					        <img class="profile-photo" src="${board.photoUrls}" alt="고양이 사진">
-					    </c:otherwise>
-					</c:choose>
-		            <div class="profile-info">
-		                <h2>${board.title}</h2>
-		                <p>지역: 어캐함</p>
-		                <p>좋아요 수: ${board.likes}</p>
-		                <span class="favorite-heart">♥</span>
-		            </div>
-		        </div>
-		    </c:forEach>
-		</div>
+			        <div class="profile-card" onclick="location.href='<%=request.getContextPath()%>/boardDetailView/${board.postId}'">
+			            <div class="profile-photo-container">
+			                <c:choose>
+			                    <c:when test="${fn:contains(board.photoUrls, ',')}">
+			                        <img class="profile-photo" src="${fn:substringBefore(board.photoUrls, ',')}" alt="고양이 사진">
+			                    </c:when>
+			                    <c:otherwise>
+			                        <img class="profile-photo" src="${board.photoUrls}" alt="고양이 사진">
+			                    </c:otherwise>
+			                </c:choose>
+			            </div>
+			            <div class="profile-info">
+			                <h2>${board.title}</h2>
+			                <p>지역: 어캐함</p>
+			            </div>
+			        </div>
+			    </c:forEach>
+			</div>
 
         <div class="add-profile">더보기</div>
     </div>

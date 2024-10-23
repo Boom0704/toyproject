@@ -172,4 +172,21 @@
 		.delete-comment-button:hover {
 		    background-color: #aa1a1a; /* 호버 시 버튼 색상을 진하게 변경 */
 		}
-		        
+		.heart, .star {
+    font-size: 40px; /* 크기를 적당히 유지 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+	
+
+.heart.checked {
+    color: #ff6262;
+}
+
+.star.checked {
+    color: #ffe75b;
+}
+
+.heart:hover, .star:hover {
+    transform: scale(1.5)
+}

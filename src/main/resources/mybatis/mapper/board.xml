@@ -42,5 +42,12 @@
         FROM posts
         ORDER BY create_dt DESC
     </select>
+    
+    <!-- 조회수 추가 -->
+    <update id="incrementViews" parameterType="int">
+    	UPDATE posts
+    	SET views = views + 1
+    	WHERE post_id = #{postId}
+	</update>
 
 </mapper>
