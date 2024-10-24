@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pro.my.influencer.dao.IInfluencerPostDAO">
+    <select id="selectAllInfluencerPosts" resultType="com.pro.my.influencer.vo.InfluencerPostVO">
+        SELECT * FROM INFLUENCER_POSTS
+    </select>
+
+    <insert id="insertInfluencerPost" parameterType="com.pro.my.influencer.vo.InfluencerPostVO">
+        INSERT INTO INFLUENCER_POSTS (influencer_id, post_id) VALUES (#{influencerId}, #{postId})
+    </insert>
+
+    <delete id="deleteInfluencerPost" parameterType="map">
+        DELETE FROM INFLUENCER_POSTS WHERE influencer_id = #{influencerId} AND post_id = #{postId}
+    </delete>
+    
+    <!-- 주어진 influencerId로 관련된 post 목록을 가져오는 쿼리 -->
+    <select id="getPostsByInfluencerId" resultType="com.pro.my.board.vo.BoardVO">
+        SELECT b.* 
+        FROM POSTS b
+        INNER JOIN INFLUENCER_POSTS ip ON b.post_id = ip.post_id
+        WHERE ip.influencer_id = #{influencerId}
+    </select>
+</mapper>

@@ -1,4 +1,4 @@
-let intervalId = null; // setInterval 관리 변수
+var intervalId = null; // setInterval 관리 변수
 
 function createFallingCat() {
   const contextPath = document.querySelector('#contextPathDiv').getAttribute('data-context-path');

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'scale(1.3)'; // 확대
             card.style.transition = 'transform 0.3s ease'; // 부드러운 확대 효과
+            card.style.zIndex = '9999'; // z-index를 최상위로 설정
         });
 
         // 마우스를 움직일 때 회전 적용
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)'; // 원래 크기로 회복
             card.style.transition = 'transform 0.3s ease'; // 부드러운 원복 효과
+            card.style.zIndex = ''; // z-index를 초기화하여 원래 상태로 되돌림
         });
     });
 });

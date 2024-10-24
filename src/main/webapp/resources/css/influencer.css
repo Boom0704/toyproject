@@ -4,6 +4,8 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   padding: 20px;
 }
 
@@ -12,6 +14,7 @@
   justify-content: center;
   align-items: center;
   gap: 30px;
+  margin-bottom: 10vh;
 }
 
 .photo-gallery {
@@ -19,6 +22,7 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  z-index: 2;
 }
 
 .signboard-photo {
@@ -32,9 +36,9 @@
 }
 
 .main-signboard-photo {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -46,6 +50,7 @@
     background: linear-gradient(135deg, #efefef 0%, #bfbfbf 100%);
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 .photo-gallery {
@@ -61,6 +66,7 @@
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
 }
 
 .thumbnail-photo {
@@ -69,12 +75,22 @@
     border-radius: 10px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out;
-    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative; /* 추가 */
+}
+
+.thumbnail-photo.selected {
+    border: 2px solid blue;
+    transform: scale(1.3);
+    transition: transform 0.5s;
+    z-index: 10; /* 추가 또는 수정 */
 }
 
 .thumbnail-photo:hover {
     transform: scale(1.3);
-    z-index: 10;
+    transition: transform 0.3s;
+    z-index: 10; /* 추가 또는 수정 */
 }
 
 /* 지도 섹션 */
@@ -96,50 +112,79 @@
     z-index: 10; /* 지도 확대 시 상위로 */
 }
 
-/* 연관 포스트 */
+.profile-photo-container {
+    width: 300px; /* 사진 컨테이너의 고정된 너비 */
+    height: 200px; /* 사진 컨테이너의 고정된 높이 */
+    background-color: black;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 사진을 컨테이너에 맞게 비율 유지하며 자름 */
+}
+
+/* 연관 포스트 블록 */
 .related-posts {
     width: 100%;
     margin-top: 20px;
-    padding: 10px;
-    background-color: #f2f2f2;
+    padding: 20px;
+    background-color: #f9f9f9;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .post-blocks {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
-    overflow-x: auto;
+    gap: 20px;
 }
 
-.post {
-    width: 200px;
-    padding: 10px;
+.profile-card {
+    width: 300px; /* 카드 너비 고정 */
     border: 1px solid #ddd;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.post img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    z-index: 1;
-}
-
-.post:hover {
+.profile-card:hover {
     transform: scale(1.05);
-    z-index: 10;
 }
 
-.post-date {
-    margin-top: 10px;
-    color: #888;
-    font-size: 0.9em;
+/* 카드 안의 정보가 일정한 크기로 정렬 */
+.profile-info {
+    padding: 15px;
+    text-align: center;
 }
+
+.profile-info h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+}
+
+/* 조회수와 날짜 정보 */
+#profile-views {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+        .custom-div-icon {
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }

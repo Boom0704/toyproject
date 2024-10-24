@@ -97,7 +97,7 @@
   width: 100px; /* 고양이 크기 */
   animation: fall linear infinite;
   pointer-events: none; /* 클릭 방지 */
-  z-index: 1005; /* 헤더 및 컨텐츠보다 앞서서 보이도록 설정 */
+  z-index: 10000; /* 헤더 및 컨텐츠보다 앞서서 보이도록 설정 */
 }
 
 @keyframes fall {

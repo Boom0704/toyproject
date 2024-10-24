@@ -105,30 +105,18 @@
 
 	<div style="width: 100%; padding-left: 10%; padding-right: 10%;">
 	    <ul class="card-list">
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
-	        <li class="card">
-	            <jsp:include page="/WEB-INF/components/card.jsp"></jsp:include>
-	        </li>
+	        <c:forEach var="influencer" items="${influencerList}">
+			    <li class="card" onclick="location.href='<%=request.getContextPath()%>/influencers/${influencer.id}'" 
+     style="cursor:pointer;">
+			        <jsp:include page="/WEB-INF/components/card.jsp">
+			            <jsp:param name="id" value="${influencer.id}"/>
+			            <jsp:param name="name" value="${influencer.name}"/>
+			            <jsp:param name="mainPhoto" value="${influencer.mainPhoto}"/>
+			            <jsp:param name="address" value="${influencer.address}"/>
+			            <jsp:param name="updatedAt" value="${influencer.updatedAt}"/>
+			        </jsp:include>
+			    </li>
+			</c:forEach>
 	    </ul>
 	</div>
     <jsp:include page="/WEB-INF/components/footer.jsp"></jsp:include>

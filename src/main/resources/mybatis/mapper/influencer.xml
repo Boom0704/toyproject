@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pro.my.influencer.dao.IInfluencerDAO">
+    
+    <!-- Select all influencers -->
+    <select id="selectAllInfluencers" resultType="com.pro.my.influencer.vo.InfluencerVO">
+        SELECT * FROM INFLUENCER
+    </select>
+
+    <!-- Select an influencer by ID -->
+    <select id="selectInfluencerById" parameterType="int" resultType="com.pro.my.influencer.vo.InfluencerVO">
+        SELECT * FROM INFLUENCER WHERE id = #{id}
+    </select>
+
+    <!-- Insert a new influencer with the name field -->
+    <insert id="insertInfluencer" parameterType="com.pro.my.influencer.vo.InfluencerVO">
+        INSERT INTO INFLUENCER (main_photo, address, latitude, longitude, name, created_at, updated_at)
+        VALUES (#{mainPhoto}, #{address}, #{latitude}, #{longitude}, #{name}, SYSDATE, SYSDATE)
+    </insert>
+
+    <!-- Update an influencer with the name field -->
+    <update id="updateInfluencer" parameterType="com.pro.my.influencer.vo.InfluencerVO">
+        UPDATE INFLUENCER
+        SET main_photo = #{mainPhoto},
+            address = #{address},
+            latitude = #{latitude},
+            longitude = #{longitude},
+            name = #{name},  <!-- Added name field here -->
+            updated_at = SYSDATE
+        WHERE id = #{id}
+    </update>
+
+    <!-- Delete an influencer by ID -->
+    <delete id="deleteInfluencer" parameterType="int">
+        DELETE FROM INFLUENCER WHERE id = #{id}
+    </delete>
+</mapper>
