@@ -1,4 +1,6 @@
 .cards-container {
+	display: flex;
+	align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -8,6 +10,7 @@
 }
 
 .card {
+  	z-index: 1003; /* 헤더 및 컨텐츠보다 앞서서 보이도록 설정 */
     width: 18rem;
     height: 28rem;
     padding: 0;
