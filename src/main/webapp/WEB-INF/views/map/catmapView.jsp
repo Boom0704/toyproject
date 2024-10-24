@@ -104,8 +104,8 @@
             return L.divIcon({
                 html: `<img src='${pageContext.request.contextPath}/assets/catt.png' style='width:70px; height:70px; border-radius:50%'/>`,
                 className: 'custom-div-icon',
-                iconSize: [70, 70],
-                iconAnchor: [35, 35]
+                iconSize: [40, 40],
+                iconAnchor: [20, 20]
             });
         }
     });
