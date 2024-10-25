@@ -1,3 +1,4 @@
+![2024-10-25135221-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/a4efbb6c-a8d6-473c-aabb-90eb9120f7be)
 # 프로젝트 개요
 이 프로젝트는 사용자가 게시글을 작성하고, 댓글을 달며, 좋아요와 즐겨찾기를 통해 상호작용할 수 있는 **커뮤니티 플랫폼**입니다. **Spring MVC**와 **Oracle Database**를 사용해 백엔드를 개발하고, **JSP**로 프론트엔드를 구성했습니다. 주요 기능으로는 게시글 및 댓글 관리, 좋아요 및 즐겨찾기 기능이 포함되어 있습니다.
 
