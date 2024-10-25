@@ -1,0 +1,31 @@
+;;; 
+Export: Release 18.0.0.0.0 - Production on 금 10월 25 11:02:35 2024
+Version 18.4.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+접속 대상: Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+"SYSTEM"."SYS_EXPORT_SCHEMA_01" 시작 중: system/********@xe schemas=jdbc directory=sql_dir dumpfile=withcat.dmp logfile=withcat.log 
+객체 유형 SCHEMA_EXPORT/TABLE/TABLE_DATA 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS 처리 중
+객체 유형 SCHEMA_EXPORT/STATISTICS/MARKER 처리 중
+객체 유형 SCHEMA_EXPORT/ROLE_GRANT 처리 중
+객체 유형 SCHEMA_EXPORT/DEFAULT_ROLE 처리 중
+객체 유형 SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA 처리 중
+객체 유형 SCHEMA_EXPORT/SEQUENCE/SEQUENCE 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/TABLE 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/COMMENT 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/IDENTITY_COLUMN 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/CONSTRAINT/REF_CONSTRAINT 처리 중
+. . "JDBC"."BOARDS"                             7.648 KB       1행이 엑스포트됨
+. . "JDBC"."COMM_CODE"                          7.062 KB      30행이 엑스포트됨
+. . "JDBC"."MEMBERS"                            8.117 KB       1행이 엑스포트됨
+. . "JDBC"."REPLYS"                                 0 KB       0행이 엑스포트됨
+마스터 테이블 "SYSTEM"."SYS_EXPORT_SCHEMA_01"이(가) 성공적으로 로드됨/로드 취소됨
+******************************************************************************
+SYSTEM.SYS_EXPORT_SCHEMA_01에 대해 설정된 덤프 파일:
+  C:\SQL_BACKUP\WITHCAT.DMP
+"SYSTEM"."SYS_EXPORT_SCHEMA_01" 작업이 금 10월 25 11:03:09 2024 elapsed 0 00:00:30에서 성공적으로 완료됨
+
